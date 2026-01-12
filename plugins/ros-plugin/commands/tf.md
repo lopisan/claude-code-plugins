@@ -102,11 +102,11 @@ map
 
 ### Common Operations
 
-- `/ros:tf` - List available frames
-- `/ros:tf tree` - Generate frame tree visualization
-- `/ros:tf base_link odom` - Get transform between frames
-- `/ros:tf echo` - Show raw TF messages
-- `/ros:tf static` - Show static transforms
+- `/tf` - List available frames
+- `/tf tree` - Generate frame tree visualization
+- `/tf base_link odom` - Get transform between frames
+- `/tf echo` - Show raw TF messages
+- `/tf static` - Show static transforms
 
 ### Troubleshooting
 

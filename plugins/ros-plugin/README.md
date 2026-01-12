@@ -42,19 +42,19 @@ cp -r ros-plugin ~/.claude/plugins/
 
 After loading or installing the plugin:
 ```
-/ros:status
+/status
 ```
 
 ---
 
 ## Commands
 
-### /ros:status
+### /status
 
 Quick ROS system health check.
 
 ```
-/ros:status
+/status
 ```
 
 **Output:**
@@ -63,16 +63,16 @@ Quick ROS system health check.
 - Active topics count
 - Available services
 
-### /ros:topics [topic-name]
+### /topics [topic-name]
 
 Inspect ROS topics.
 
 ```
 # List all topics with publishers/subscribers
-/ros:topics
+/topics
 
 # Inspect specific topic
-/ros:topics /sensor/data
+/topics /sensor/data
 ```
 
 **Output for specific topic:**
@@ -81,79 +81,79 @@ Inspect ROS topics.
 - Publishing rate (Hz)
 - Sample message content
 
-### /ros:services [service-name]
+### /services [service-name]
 
 Manage ROS services.
 
 ```
 # List all services
-/ros:services
+/services
 
 # Inspect specific service
-/ros:services /node/get_loggers
+/services /node/get_loggers
 
 # Call a service
-/ros:services call /set_bool "data: true"
+/services call /set_bool "data: true"
 ```
 
-### /ros:params [param-name]
+### /params [param-name]
 
 Manage ROS parameters.
 
 ```
 # List all parameters
-/ros:params
+/params
 
 # Get parameter value
-/ros:params /use_sim_time
+/params /use_sim_time
 
 # Set parameter
-/ros:params set /rate 100
+/params set /rate 100
 
 # Delete parameter
-/ros:params delete /old_param
+/params delete /old_param
 ```
 
-### /ros:tf [source target]
+### /tf [source target]
 
 Inspect TF transforms.
 
 ```
 # List all frames
-/ros:tf
+/tf
 
 # Show frame tree
-/ros:tf tree
+/tf tree
 
 # Lookup transform
-/ros:tf base_link odom
+/tf base_link odom
 ```
 
-### /ros:build [package] [--clean]
+### /build [package] [--clean]
 
 Build catkin workspace.
 
 ```
 # Build entire workspace
-/ros:build
+/build
 
 # Build specific package
-/ros:build your_package
+/build your_package
 
 # Clean and rebuild
-/ros:build --clean
+/build --clean
 ```
 
-### /ros:launch [package-or-file]
+### /launch [package-or-file]
 
 Find and inspect launch files.
 
 ```
 # List all launch files in workspace
-/ros:launch
+/launch
 
 # Inspect package launch files
-/ros:launch your_package
+/launch your_package
 ```
 
 **Output:**
@@ -162,30 +162,30 @@ Find and inspect launch files.
 - Arguments and parameters
 - Example launch command
 
-### /ros:record [start|stop|status|info]
+### /record [start|stop|status|info]
 
 Manage rosbag recording.
 
 ```
 # Check status and list topics
-/ros:record
+/record
 
 # Start recording (shows command)
-/ros:record start
+/record start
 
 # Stop active recording
-/ros:record stop
+/record stop
 
 # Show bag file info
-/ros:record info my_recording.bag
+/record info my_recording.bag
 ```
 
-### /ros:diag
+### /diag
 
 Run roswtf diagnostics.
 
 ```
-/ros:diag
+/diag
 ```
 
 **Output:**
@@ -200,7 +200,7 @@ Run roswtf diagnostics.
 
 Agents are triggered automatically based on conversation context.
 
-### ros-explorer (Blue)
+### explorer (Blue)
 
 **Trigger phrases:**
 - "Explain how this ROS system works"
@@ -212,7 +212,7 @@ Agents are triggered automatically based on conversation context.
 - Traces data flow paths
 - Identifies node responsibilities
 
-### ros-debugger (Yellow)
+### debugger (Yellow)
 
 **Trigger phrases:**
 - "My node isn't receiving messages"
@@ -224,7 +224,7 @@ Agents are triggered automatically based on conversation context.
 - Verifies message type matching
 - Checks namespace/remapping issues
 
-### ros-monitor (Cyan)
+### monitor (Cyan)
 
 **Trigger phrases:**
 - "Monitor the sensor topic rate"
@@ -242,15 +242,15 @@ Agents are triggered automatically based on conversation context.
 
 Skills provide contextual guidance when relevant topics are discussed.
 
-### ros-message-types
+### message-types
 
 Activated when discussing sensor_msgs, geometry_msgs, std_msgs, message fields and structures.
 
-### ros-launch-files
+### launch-files
 
 Activated when discussing launch file syntax, XML tags, conditionals, namespaces, remapping.
 
-### ros-troubleshooting
+### troubleshooting
 
 Activated when encountering errors: "Unable to communicate with master", "Topic not found", "Transform errors", build failures.
 
@@ -261,7 +261,7 @@ Activated when encountering errors: "Unable to communicate with master", "Topic 
 ### Check System Status
 
 ```
-User: /ros:status
+User: /status
 
 Claude: Checking ROS system status...
 
@@ -275,7 +275,7 @@ Services: 8
 ### Inspect a Topic
 
 ```
-User: /ros:topics /sensor/data
+User: /topics /sensor/data
 
 Claude: Inspecting topic /sensor/data...
 
@@ -290,7 +290,7 @@ Subscribers: /processor_node
 ```
 User: My subscriber isn't receiving sensor data
 
-Claude: [ros-debugger agent activates]
+Claude: [debugger agent activates]
 
 Let me trace the connection...
 
@@ -311,23 +311,23 @@ ros-plugin/
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin manifest
 ├── commands/
-│   ├── ros:status.md         # /ros:status
-│   ├── ros:topics.md         # /ros:topics
-│   ├── ros:services.md       # /ros:services
-│   ├── ros:params.md         # /ros:params
-│   ├── ros:tf.md             # /ros:tf
-│   ├── ros:build.md          # /ros:build
-│   ├── ros:launch.md         # /ros:launch
-│   ├── ros:record.md         # /ros:record
-│   └── ros:diag.md           # /ros:diag
+│   ├── status.md             # /status
+│   ├── topics.md             # /topics
+│   ├── services.md           # /services
+│   ├── params.md             # /params
+│   ├── tf.md                 # /tf
+│   ├── build.md              # /build
+│   ├── launch.md             # /launch
+│   ├── record.md             # /record
+│   └── diag.md               # /diag
 ├── agents/
-│   ├── ros-explorer.md       # System exploration
-│   ├── ros-debugger.md       # Communication debugging
-│   └── ros-monitor.md        # Background monitoring
+│   ├── explorer.md           # System exploration
+│   ├── debugger.md           # Communication debugging
+│   └── monitor.md            # Background monitoring
 ├── skills/
-│   ├── ros-message-types/
-│   ├── ros-launch-files/
-│   └── ros-troubleshooting/
+│   ├── message-types/
+│   ├── launch-files/
+│   └── troubleshooting/
 ├── hooks/
 │   └── hooks.json            # Session hooks
 ├── CLAUDE.md                 # Development notes

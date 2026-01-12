@@ -1,5 +1,5 @@
 ---
-name: ros-monitor
+name: monitor
 description: |
   Use this agent for continuous background monitoring of ROS system health - tracking topic rates, detecting node failures, and alerting on anomalies.
 

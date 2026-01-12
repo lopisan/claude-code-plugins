@@ -27,23 +27,23 @@ ros-plugin/
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin manifest
 ├── commands/
-│   ├── ros:status.md         # System health check
-│   ├── ros:topics.md         # Topic inspection
-│   ├── ros:services.md       # Service management
-│   ├── ros:params.md         # Parameter management
-│   ├── ros:tf.md             # TF transform inspection
-│   ├── ros:build.md          # Catkin workspace build
-│   ├── ros:launch.md         # Launch file management
-│   ├── ros:record.md         # Rosbag recording
-│   └── ros:diag.md           # System diagnostics
+│   ├── status.md             # System health check
+│   ├── topics.md             # Topic inspection
+│   ├── services.md           # Service management
+│   ├── params.md             # Parameter management
+│   ├── tf.md                 # TF transform inspection
+│   ├── build.md              # Catkin workspace build
+│   ├── launch.md             # Launch file management
+│   ├── record.md             # Rosbag recording
+│   └── diag.md               # System diagnostics
 ├── agents/
-│   ├── ros-explorer.md       # System architecture analysis
-│   ├── ros-debugger.md       # Communication debugging
-│   └── ros-monitor.md        # Runtime monitoring
+│   ├── explorer.md           # System architecture analysis
+│   ├── debugger.md           # Communication debugging
+│   └── monitor.md            # Runtime monitoring
 ├── skills/
-│   ├── ros-message-types/    # Message structure reference
-│   ├── ros-launch-files/     # Launch file guide
-│   └── ros-troubleshooting/  # Error diagnosis
+│   ├── message-types/        # Message structure reference
+│   ├── launch-files/         # Launch file guide
+│   └── troubleshooting/      # Error diagnosis
 ├── hooks/
 │   └── hooks.json            # Session start reminder
 └── README.md
@@ -55,15 +55,15 @@ ros-plugin/
 
 | Command | Description | Tools |
 |---------|-------------|-------|
-| `/ros:status` | Quick system overview (nodes, topics, services) | Bash |
-| `/ros:topics [name]` | List/inspect topics with message samples | Bash |
-| `/ros:services [name]` | List/inspect/call services | Bash |
-| `/ros:params [name]` | List/get/set parameters | Bash |
-| `/ros:tf [frames]` | TF frame tree and transforms | Bash |
-| `/ros:build [pkg]` | Build catkin workspace | Bash |
-| `/ros:launch [pkg]` | Find and inspect launch files | Bash, Read, Glob |
-| `/ros:record [action]` | Manage rosbag recording | Bash |
-| `/ros:diag` | Run roswtf and system diagnostics | Bash |
+| `/status` | Quick system overview (nodes, topics, services) | Bash |
+| `/topics [name]` | List/inspect topics with message samples | Bash |
+| `/services [name]` | List/inspect/call services | Bash |
+| `/params [name]` | List/get/set parameters | Bash |
+| `/tf [frames]` | TF frame tree and transforms | Bash |
+| `/build [pkg]` | Build catkin workspace | Bash |
+| `/launch [pkg]` | Find and inspect launch files | Bash, Read, Glob |
+| `/record [action]` | Manage rosbag recording | Bash |
+| `/diag` | Run roswtf and system diagnostics | Bash |
 
 ---
 
@@ -71,9 +71,9 @@ ros-plugin/
 
 | Agent | Trigger | Purpose |
 |-------|---------|---------|
-| `ros-explorer` | "What nodes are running?", "Show system architecture" | Map ROS graph and data flow |
-| `ros-debugger` | "Topic not connecting", "Messages not received" | Debug communication issues |
-| `ros-monitor` | "Monitor topic rate", "Watch node health" | Continuous system monitoring |
+| `explorer` | "What nodes are running?", "Show system architecture" | Map ROS graph and data flow |
+| `debugger` | "Topic not connecting", "Messages not received" | Debug communication issues |
+| `monitor` | "Monitor topic rate", "Watch node health" | Continuous system monitoring |
 
 ---
 
@@ -94,18 +94,18 @@ source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 
 | ROS Tool | Used In |
 |----------|---------|
-| `roscore` | ros:status (check if running) |
-| `rosnode list/info/ping` | ros:status, ros:diag, agents |
-| `rostopic list/info/type/echo/hz` | ros:topics, agents |
-| `rosservice list/info/type/call` | ros:services |
-| `rosparam list/get/set/delete` | ros:params |
-| `rosrun tf tf_echo/view_frames` | ros:tf |
-| `rosmsg show` | ros:topics |
-| `rossrv show` | ros:services |
-| `catkin build/catkin_make` | ros:build |
-| `roslaunch --files/--args` | ros:launch |
-| `rosbag record/info` | ros:record |
-| `roswtf` | ros:diag |
+| `roscore` | status (check if running) |
+| `rosnode list/info/ping` | status, diag, agents |
+| `rostopic list/info/type/echo/hz` | topics, agents |
+| `rosservice list/info/type/call` | services |
+| `rosparam list/get/set/delete` | params |
+| `rosrun tf tf_echo/view_frames` | tf |
+| `rosmsg show` | topics |
+| `rossrv show` | services |
+| `catkin build/catkin_make` | build |
+| `roslaunch --files/--args` | launch |
+| `rosbag record/info` | record |
+| `roswtf` | diag |
 
 ### Timeout Policy
 

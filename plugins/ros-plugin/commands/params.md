@@ -86,10 +86,10 @@ joint_names:
 
 ### Common Operations
 
-- `/ros:params` - List all parameters
-- `/ros:params /use_sim_time` - Get specific parameter
-- `/ros:params set /rate 100` - Set parameter value
-- `/ros:params delete /old_param` - Delete parameter
-- `/ros:params list /robot` - List params in namespace
-- `/ros:params dump params.yaml` - Save all params to file
-- `/ros:params load params.yaml` - Load params from file
+- `/params` - List all parameters
+- `/params /use_sim_time` - Get specific parameter
+- `/params set /rate 100` - Set parameter value
+- `/params delete /old_param` - Delete parameter
+- `/params list /robot` - List params in namespace
+- `/params dump params.yaml` - Save all params to file
+- `/params load params.yaml` - Load params from file

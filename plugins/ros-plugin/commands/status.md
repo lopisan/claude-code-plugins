@@ -65,4 +65,4 @@ Provide a clear summary in this format:
 ### Recommendations
 - If roscore not running: Suggest starting it with `roscore` or `roslaunch`
 - If no nodes: Suggest launching nodes
-- If issues detected: Suggest running `/ros:diag` for diagnostics
+- If issues detected: Suggest running `/diag` for diagnostics

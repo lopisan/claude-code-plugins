@@ -10,18 +10,6 @@
   },
   "plugins": [
     {
-      "name": "hello-world",
-      "description": "A simple example plugin demonstrating basic Claude Code plugin functionality",
-      "version": "1.0.0",
-      "author": {
-        "name": "Your Team"
-      },
-      "source": "./plugins/hello-world",
-      "category": "examples",
-      "tags": ["example", "tutorial", "getting-started"],
-      "keywords": ["example", "tutorial", "getting-started"]
-    },
-    {
       "name": "plugin-development",
       "description": "Assist with Claude Code plugin development: scaffold, validate, review, and team-ready distribution",
       "version": "1.3.0",
@@ -36,7 +24,7 @@
     {
       "name": "ros-plugin",
       "description": "Project-agnostic ROS1 plugin for topics, services, parameters, TF transforms, build, launch, and diagnostics. Includes intelligent agents for system exploration, debugging, and monitoring.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": {
         "name": "ROS Developer"
       },

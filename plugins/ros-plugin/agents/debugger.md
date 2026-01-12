@@ -1,5 +1,5 @@
 ---
-name: ros-debugger
+name: debugger
 description: |
   Use this agent when the user has ROS communication problems - topics not connecting, nodes not receiving messages, services timing out, or data flow issues.
 

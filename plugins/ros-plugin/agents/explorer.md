@@ -1,5 +1,5 @@
 ---
-name: ros-explorer
+name: explorer
 description: |
   Use this agent when the user wants to understand the ROS system architecture, explore node relationships, trace data flow, or get an overview of how the robot system works.
 
