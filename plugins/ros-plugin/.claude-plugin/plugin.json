@@ -1,0 +1,21 @@
+{
+  "name": "ros-plugin",
+  "version": "2.0.0",
+  "description": "Project-agnostic ROS1 plugin for topics, services, parameters, TF transforms, build, launch, and diagnostics. Includes intelligent agents for system exploration, debugging, and monitoring.",
+  "author": {
+    "name": "ROS Developer"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ros",
+    "ros1",
+    "noetic",
+    "robotics",
+    "catkin",
+    "topics",
+    "services",
+    "parameters",
+    "tf",
+    "transforms"
+  ]
+}

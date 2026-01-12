@@ -1,12 +1,12 @@
 {
-  "name": "my-team-plugin-marketplace",
+  "name": "swarm-marketplace",
   "owner": {
-    "name": "Your Organization",
-    "email": "team@your-org.com"
+    "name": "GoodAI Swarm Robotics",
+    "email": "petr.hlubucek@goodai.com"
   },
   "metadata": {
-    "description": "A curated collection of Claude Code plugins for our team",
-    "version": "1.3.0"
+    "description": "A collection of Claude Code plugins for our team",
+    "version": "1.0.0"
   },
   "plugins": [
     {
@@ -32,6 +32,18 @@
       "category": "developer-tools",
       "tags": ["development", "plugins", "scaffold", "validation", "tools"],
       "keywords": ["claude-code", "plugins", "developer-tools", "scaffold", "validation"]
+    },
+    {
+      "name": "ros-plugin",
+      "description": "Project-agnostic ROS1 plugin for topics, services, parameters, TF transforms, build, launch, and diagnostics. Includes intelligent agents for system exploration, debugging, and monitoring.",
+      "version": "2.0.0",
+      "author": {
+        "name": "ROS Developer"
+      },
+      "source": "./plugins/ros-plugin",
+      "category": "robotics",
+      "tags": ["ros", "ros1", "noetic", "robotics", "catkin"],
+      "keywords": ["ros", "ros1", "noetic", "robotics", "catkin", "topics", "services", "parameters", "tf", "transforms"]
     }
   ]
 }
