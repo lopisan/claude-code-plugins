@@ -338,17 +338,15 @@ ros-plugin/
 
 ## Environment
 
-Set `CATKIN_WS` environment variable to specify your catkin workspace path (defaults to `catkin_ws`).
+**Prerequisite:** ROS must be sourced before using plugin commands.
 
 ```bash
-export CATKIN_WS=/path/to/your/catkin_ws
+# Source your ROS workspace before starting Claude
+source /opt/ros/noetic/setup.bash
+source ~/catkin_ws/devel/setup.bash
 ```
 
-Commands automatically source:
-```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash
-```
+The `/status` command will check if ROS is properly sourced and prompt you if not.
 
 ---
 

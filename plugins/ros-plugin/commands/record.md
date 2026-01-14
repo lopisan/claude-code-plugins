@@ -29,7 +29,6 @@ fi
 ## List available topics for recording:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 echo "=== Available Topics ==="
 rostopic list 2>/dev/null | while read topic; do
   hz=$(timeout 3 rostopic hz "$topic" 2>&1 | grep "average rate" | awk '{print $3}' || echo "?")
@@ -42,7 +41,6 @@ done
 
 ### Record all topics:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 echo "Starting rosbag record -a..."
 echo "Command: rosbag record -a -O recording_$(date +%Y%m%d_%H%M%S).bag"
 # Note: Actually starting requires user confirmation or background execution
@@ -50,7 +48,6 @@ echo "Command: rosbag record -a -O recording_$(date +%Y%m%d_%H%M%S).bag"
 
 ### Record specific topics:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 TOPICS="$SPECIFIED_TOPICS"  # e.g., "/sensor/data /camera/image"
 echo "Starting rosbag record for: $TOPICS"
 echo "Command: rosbag record $TOPICS -O recording_$(date +%Y%m%d_%H%M%S).bag"
@@ -77,7 +74,6 @@ ls -lh *.bag 2>/dev/null | tail -5
 ## Show bag file info:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 BAGFILE="$SPECIFIED_BAGFILE"
 if [ -f "$BAGFILE" ]; then
   rosbag info $BAGFILE 2>&1

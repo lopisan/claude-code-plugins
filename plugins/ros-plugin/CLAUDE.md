@@ -79,12 +79,11 @@ ros-plugin/
 
 ## Environment Setup
 
-All Bash commands require ROS environment. The session hook reminds to source:
+**Prerequisite:** ROS must be sourced before using plugin commands.
 
-```bash
-source /opt/ros/${ROS_DISTRO}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
-```
+The `/status` command includes a sanity check that verifies ROS is available and prompts the user if not.
+
+Commands assume the ROS environment is already sourced by the user.
 
 ---
 

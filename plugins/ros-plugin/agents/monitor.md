@@ -34,8 +34,6 @@ You are a ROS system monitoring specialist. Your job is to continuously observe 
 ### Monitor Topic Rate
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 
 # Continuous rate monitoring (run for duration)
 timeout 30 rostopic hz /topic_name 2>&1
@@ -44,21 +42,18 @@ timeout 30 rostopic hz /topic_name 2>&1
 ### Monitor Topic Bandwidth
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 10 rostopic bw /topic_name 2>&1
 ```
 
 ### Monitor Message Delay
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 10 rostopic delay /topic_name 2>&1
 ```
 
 ### Check Node Health
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Ping all nodes
 for node in $(rosnode list 2>/dev/null); do
@@ -75,7 +70,6 @@ done
 ### Monitor Specific Topic Values
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Echo messages with timestamp
 timeout 10 rostopic echo /topic_name 2>&1 | head -50
@@ -100,7 +94,6 @@ First, understand what to monitor:
 ### 2. Establish Baseline
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 echo "=== Baseline Measurement ==="
 echo "Time: $(date)"
@@ -120,7 +113,6 @@ done
 Run periodic checks and report anomalies:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 TOPIC="/topic_to_monitor"
 EXPECTED_RATE=100  # Hz

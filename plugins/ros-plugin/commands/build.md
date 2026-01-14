@@ -40,7 +40,6 @@ fi
 If $ARGUMENTS contains `--clean`:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 cd ${CATKIN_WS:-catkin_ws}
 
 # For catkin_tools
@@ -57,7 +56,6 @@ fi
 
 ### Using catkin build (catkin_tools):
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 cd ${CATKIN_WS:-catkin_ws}
 
 # Build all or specific package
@@ -70,7 +68,6 @@ fi
 
 ### Using catkin_make:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 cd ${CATKIN_WS:-catkin_ws}
 
 if [ -n "$PACKAGE_NAME" ]; then

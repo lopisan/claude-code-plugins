@@ -45,8 +45,6 @@ Ask clarifying questions if needed:
 ### Step 2: Check Topic Connection
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 
 # Check if topic exists
 rostopic list | grep -i "topic_name"
@@ -67,7 +65,6 @@ timeout 5 rostopic hz /topic_name 2>&1
 ### Step 3: Analyze Publisher Node
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Get publisher node info
 rosnode info /publisher_node 2>&1
@@ -79,7 +76,6 @@ rosnode ping -c 3 /publisher_node 2>&1
 ### Step 4: Analyze Subscriber Node
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Get subscriber node info
 rosnode info /subscriber_node 2>&1
@@ -91,7 +87,6 @@ rosnode info /subscriber_node 2>&1 | grep -A 20 "Subscriptions:"
 ### Step 5: Check Message Type Compatibility
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Compare publisher and subscriber expected types
 PUB_TYPE=$(rostopic type /topic_name 2>/dev/null)
@@ -104,7 +99,6 @@ rosmsg show $PUB_TYPE 2>/dev/null
 ### Step 6: Check Namespace and Remapping
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # List all topics to see namespace structure
 rostopic list | sort
@@ -116,7 +110,6 @@ rostopic list | grep -i "topic_keyword"
 ### Step 7: Debug Services
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 
 # Check if service exists
 rosservice list | grep -i "service_name"

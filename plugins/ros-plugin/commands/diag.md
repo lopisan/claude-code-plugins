@@ -8,8 +8,6 @@ Run comprehensive ROS diagnostics to identify system issues.
 ## Step 1: Run roswtf
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 roswtf 2>&1
 ```
 
@@ -28,7 +26,6 @@ echo "PYTHONPATH (ROS): $(echo $PYTHONPATH | grep -o '/opt/ros[^:]*' | head -1)"
 ## Step 3: Check roscore/master connectivity
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 echo "=== Master Connectivity ==="
 timeout 3 rostopic list >/dev/null 2>&1 && echo "Master: REACHABLE" || echo "Master: UNREACHABLE"
 ```
@@ -36,7 +33,6 @@ timeout 3 rostopic list >/dev/null 2>&1 && echo "Master: REACHABLE" || echo "Mas
 ## Step 4: Check for dead/unresponsive nodes
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 echo "=== Node Health Check ==="
 for node in $(rosnode list 2>/dev/null); do
   if timeout 2 rosnode ping -c 1 $node 2>&1 | grep -q "reply"; then
@@ -50,7 +46,6 @@ done
 ## Step 5: Check topic publisher/subscriber connectivity
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 echo "=== Topic Connectivity ==="
 for topic in $(rostopic list 2>/dev/null | head -10); do
   info=$(rostopic info $topic 2>/dev/null)

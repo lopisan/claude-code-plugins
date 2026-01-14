@@ -9,8 +9,6 @@ Inspect ROS topics in the system. The user may optionally provide a topic name a
 ## If no topic specified (list all topics):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 rostopic list -v 2>&1
 ```
 
@@ -22,20 +20,16 @@ Run these commands to get comprehensive topic information:
 
 ### Get topic info (publishers/subscribers):
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 rostopic info "$ARGUMENTS" 2>&1
 ```
 
 ### Get message type:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rostopic type "$ARGUMENTS" 2>&1
 ```
 
 ### Show message structure:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 TOPIC_TYPE=$(rostopic type "$ARGUMENTS" 2>/dev/null)
 if [ -n "$TOPIC_TYPE" ]; then
   rosmsg show "$TOPIC_TYPE" 2>&1
@@ -44,13 +38,11 @@ fi
 
 ### Measure publishing rate (5s timeout for rate sampling):
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 5 rostopic hz "$ARGUMENTS" 2>&1 || echo "No messages received or topic not publishing"
 ```
 
 ### Echo latest message (5s timeout for data sampling):
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 5 rostopic echo -n 1 "$ARGUMENTS" 2>&1 || echo "No message received within timeout"
 ```
 

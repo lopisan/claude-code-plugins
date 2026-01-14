@@ -6,31 +6,41 @@ model: haiku
 
 Perform a comprehensive ROS system health check. Run these diagnostics:
 
-## Step 1: Check roscore status
+## Step 1: Check ROS environment is sourced
+
+```bash
+if ! command -v roscore &> /dev/null; then
+  echo "ERROR: ROS environment not sourced. Please run: source /opt/ros/<distro>/setup.bash"
+  exit 1
+fi
+echo "ROS environment: OK"
+```
+
+## Step 2: Check roscore status
 
 ```bash
 pgrep -a rosmaster 2>/dev/null && echo "ROSCORE_STATUS: RUNNING" || echo "ROSCORE_STATUS: NOT_RUNNING"
 ```
 
-## Step 2: List active nodes (if roscore running)
+## Step 3: List active nodes (if roscore running)
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash && timeout 3 rosnode list 2>&1
+timeout 3 rosnode list 2>&1
 ```
 
-## Step 3: Count and list topics
+## Step 4: Count and list topics
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash && timeout 3 rostopic list 2>&1
+timeout 3 rostopic list 2>&1
 ```
 
-## Step 4: List available services
+## Step 5: List available services
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash && timeout 3 rosservice list 2>&1 | head -15
+timeout 3 rosservice list 2>&1 | head -15
 ```
 
-## Step 5: Check ROS environment
+## Step 6: Check ROS environment variables
 
 ```bash
 echo "ROS_DISTRO: $ROS_DISTRO"
@@ -63,6 +73,7 @@ Provide a clear summary in this format:
 - ROS_MASTER_URI: http://localhost:11311
 
 ### Recommendations
+- If ROS not sourced: Tell user to source their ROS workspace
 - If roscore not running: Suggest starting it with `roscore` or `roslaunch`
 - If no nodes: Suggest launching nodes
 - If issues detected: Suggest running `/diag` for diagnostics

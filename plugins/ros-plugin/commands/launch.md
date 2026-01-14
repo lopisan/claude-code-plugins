@@ -18,8 +18,6 @@ done
 
 ```bash
 echo "=== Installed ROS packages with launch files ==="
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 for pkg in $(rospack list-names 2>/dev/null | head -20); do
   pkg_path=$(rospack find $pkg 2>/dev/null)
   if [ -d "$pkg_path/launch" ]; then
@@ -32,8 +30,6 @@ done | head -15
 
 ### Find package and its launch files:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 
 PKG_PATH=$(rospack find $ARGUMENTS 2>/dev/null)
 if [ -n "$PKG_PATH" ]; then

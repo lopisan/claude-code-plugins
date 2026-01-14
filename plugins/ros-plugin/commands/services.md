@@ -10,7 +10,6 @@ Manage ROS services. The user may optionally provide a service name or call comm
 ## If no arguments (list all services):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosservice list 2>&1
 ```
 
@@ -18,19 +17,16 @@ rosservice list 2>&1
 
 ### Get service info:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosservice info "$ARGUMENTS" 2>&1
 ```
 
 ### Get service type:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosservice type "$ARGUMENTS" 2>&1
 ```
 
 ### Show service definition:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 SRV_TYPE=$(rosservice type "$ARGUMENTS" 2>/dev/null)
 if [ -n "$SRV_TYPE" ]; then
   rossrv show $SRV_TYPE 2>&1
@@ -42,7 +38,6 @@ fi
 Parse the service name and arguments from $ARGUMENTS, then:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 # Example: rosservice call /service_name "data: true"
 rosservice call <service_name> <args> 2>&1
 ```

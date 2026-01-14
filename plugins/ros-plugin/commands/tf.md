@@ -10,34 +10,29 @@ Inspect TF (Transform) coordinate frames. The user may provide frame names or su
 ## If no arguments or "frames" (list all frames):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 3 rostopic echo -n 1 /tf 2>/dev/null | grep -o "child_frame_id: [^,]*" | sort -u || echo "No TF data available"
 ```
 
 Or use tf_monitor:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 3 rosrun tf tf_monitor 2>&1 | head -30
 ```
 
 ## If "tree" provided (show frame tree):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosrun tf view_frames 2>&1
 echo "Frame tree saved to frames.pdf in current directory"
 ```
 
 Or get tree structure via tf_monitor:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 timeout 5 rosrun tf tf_monitor 2>&1
 ```
 
 ## If two frame names provided (lookup transform):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 # tf_echo <source_frame> <target_frame>
 timeout 5 rosrun tf tf_echo <source_frame> <target_frame> 2>&1 | head -20
 ```
@@ -45,7 +40,6 @@ timeout 5 rosrun tf tf_echo <source_frame> <target_frame> 2>&1 | head -20
 ## If "echo" provided (raw TF topic):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 # 5s timeout for data sampling
 timeout 5 rostopic echo -n 5 /tf 2>&1
 ```
@@ -53,7 +47,6 @@ timeout 5 rostopic echo -n 5 /tf 2>&1
 ## If "static" provided (show static transforms):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 # 5s timeout for data sampling
 timeout 5 rostopic echo -n 5 /tf_static 2>&1
 ```

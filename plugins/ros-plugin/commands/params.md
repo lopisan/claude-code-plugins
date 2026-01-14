@@ -10,14 +10,12 @@ Manage ROS parameters. The user may provide various subcommands in $ARGUMENTS.
 ## If no arguments or "list" (list all parameters):
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam list 2>&1
 ```
 
 ## If "list <namespace>" provided:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam list <namespace> 2>&1
 ```
 
@@ -25,14 +23,12 @@ rosparam list <namespace> 2>&1
 
 ### Get parameter value:
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam get "$ARGUMENTS" 2>&1
 ```
 
 ## If "set <name> <value>" provided:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam set <name> <value> 2>&1
 echo "Parameter set successfully"
 ```
@@ -40,7 +36,6 @@ echo "Parameter set successfully"
 ## If "delete <name>" provided:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam delete <name> 2>&1
 echo "Parameter deleted"
 ```
@@ -48,14 +43,12 @@ echo "Parameter deleted"
 ## If "dump [file]" provided:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam dump <file> 2>&1
 ```
 
 ## If "load <file>" provided:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosparam load <file> 2>&1
 ```
 

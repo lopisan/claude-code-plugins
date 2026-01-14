@@ -6,7 +6,7 @@
       "hooks": [
         {
           "type": "prompt",
-          "prompt": "ROS1 Noetic environment detected. When running Bash-based ROS commands, source the environment first:\n\n```bash\nsource /opt/ros/${ROS_DISTRO:-noetic}/setup.bash\nsource ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true\n```\n\nAvailable commands:\n- /ros:status - System overview\n- /ros:topics - Topic inspection\n- /ros:services - Service management\n- /ros:params - Parameter management\n- /ros:tf - Transform tree\n- /ros:build - Catkin build\n- /ros:launch - Launch file management\n- /ros:record - Rosbag recording\n- /ros:diag - Diagnostics"
+          "prompt": "ROS Plugin loaded. Ensure ROS environment is sourced before using commands.\n\nAvailable commands:\n- /status - System overview\n- /topics - Topic inspection\n- /services - Service management\n- /params - Parameter management\n- /tf - Transform tree\n- /build - Catkin build\n- /launch - Launch file management\n- /record - Rosbag recording\n- /diag - Diagnostics"
         }
       ]
     }

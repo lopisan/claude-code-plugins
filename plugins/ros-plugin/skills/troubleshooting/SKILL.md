@@ -24,8 +24,6 @@ Quick reference for diagnosing and fixing common ROS issues.
 
 ```bash
 # Source environment
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source catkin_ws/devel/setup.bash
 
 # Run diagnostics
 roswtf
@@ -150,7 +148,6 @@ rostopic echo /tf
 rosdep install --from-paths src --ignore-src -r -y
 
 # Source ROS environment
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 ```
 
 ### "CMake Error: Could not find..."
@@ -251,7 +248,6 @@ May be expected if no consumer running. Check if:
 ### "Package X not found"
 
 ```bash
-source catkin_ws/devel/setup.bash
 rospack find package_name
 ```
 
@@ -301,8 +297,6 @@ echo $ROS_PACKAGE_PATH  # Should include your workspace
 echo $ROS_IP            # Your IP (for multi-machine)
 
 # Reset environment
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source catkin_ws/devel/setup.bash
 
 # Check what's sourced
 echo $CMAKE_PREFIX_PATH

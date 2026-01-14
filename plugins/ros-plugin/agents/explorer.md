@@ -38,8 +38,6 @@ You are a ROS system architecture analyst. Your job is to explore and explain RO
 First, gather the complete picture:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
-source ${CATKIN_WS:-catkin_ws}/devel/setup.bash 2>/dev/null || true
 
 echo "=== NODES ==="
 rosnode list 2>/dev/null
@@ -58,7 +56,6 @@ rosservice list 2>/dev/null | head -20
 For each important node, get full details:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rosnode info /node_name 2>/dev/null
 ```
 
@@ -73,7 +70,6 @@ This shows:
 For key topics, understand the data format:
 
 ```bash
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rostopic type /topic_name
 rosmsg show $(rostopic type /topic_name 2>/dev/null) 2>/dev/null
 ```
@@ -87,7 +83,6 @@ Explore the codebase organization:
 find ${CATKIN_WS:-catkin_ws}/src -name "package.xml" -exec dirname {} \;
 
 # Check package dependencies
-source /opt/ros/${ROS_DISTRO:-noetic}/setup.bash
 rospack depends package_name 2>/dev/null
 rospack depends-on package_name 2>/dev/null
 ```
