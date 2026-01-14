@@ -1,14 +1,15 @@
 {
-  "hooks": [
-    {
-      "event": "SessionStart",
-      "matcher": "*",
-      "hooks": [
-        {
-          "type": "prompt",
-          "prompt": "ROS Plugin loaded. Ensure ROS environment is sourced before using commands.\n\nAvailable commands:\n- /status - System overview\n- /topics - Topic inspection\n- /services - Service management\n- /params - Parameter management\n- /tf - Transform tree\n- /build - Catkin build\n- /launch - Launch file management\n- /record - Rosbag recording\n- /diag - Diagnostics"
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "ROS Plugin loaded. Ensure ROS environment is sourced before using commands.\n\nAvailable commands:\n- /status - System overview\n- /topics - Topic inspection\n- /services - Service management\n- /params - Parameter management\n- /tf - Transform tree\n- /build - Catkin build\n- /launch - Launch file management\n- /record - Rosbag recording\n- /diag - Diagnostics"
+          }
+        ]
+      }
+    ]
+  }
 }
