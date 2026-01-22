@@ -32,7 +32,7 @@ Export your current Claude Code configuration (marketplaces, MCP servers, plugin
    - `~/.claude.json` for MCP servers
    - `~/.claude/settings.json` for enabled plugins
 
-3. Run the generation script located at `{plugin_dir}/generate_claude_setup.sh` with the appropriate arguments and flags.
+3. Run the generation script located at `${CLAUDE_PLUGIN_ROOT}/generate_claude_setup.sh` with the appropriate arguments and flags.
 
 4. After generation, display a summary showing:
    - The output file path (or "dry-run mode" if using `--dry-run`)

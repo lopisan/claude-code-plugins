@@ -23,7 +23,7 @@ Without selective flags, all configuration types are cleaned.
 
 1. Parse the user's arguments to determine which flags to pass to the cleanup script.
 
-2. Run the cleanup script located at `{plugin_dir}/clean_claude_setup.sh` with the appropriate flags.
+2. Run the cleanup script located at `${CLAUDE_PLUGIN_ROOT}/clean_claude_setup.sh` with the appropriate flags.
 
 3. Display the output from the script, which includes:
    - Color-coded status messages
