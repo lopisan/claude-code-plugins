@@ -1,7 +1,7 @@
 ---
 command: config-save
 description: Export Claude Code configuration to a portable setup script
-arguments: "[options] [output-file]"
+arguments: "[options] [output_file]"
 user_invocable: true
 ---
 

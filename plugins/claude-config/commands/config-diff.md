@@ -1,7 +1,7 @@
 ---
 command: config-diff
 description: Compare current Claude Code config with a saved setup script
-arguments: "<setup-script>"
+arguments: "<setup_script>"
 user_invocable: true
 ---
 
