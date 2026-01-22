@@ -1,0 +1,10 @@
+{
+  "name": "claude-config",
+  "version": "1.0.0",
+  "description": "Export and manage Claude Code configuration for portable setup across machines",
+  "author": {
+    "name": "GoodAI Swarm Robotics"
+  },
+  "license": "MIT",
+  "keywords": ["config", "setup", "export", "backup", "mcp", "plugins", "marketplaces"]
+}

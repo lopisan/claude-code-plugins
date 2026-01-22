@@ -32,6 +32,18 @@
       "category": "robotics",
       "tags": ["ros", "ros1", "noetic", "robotics", "catkin"],
       "keywords": ["ros", "ros1", "noetic", "robotics", "catkin", "topics", "services", "parameters", "tf", "transforms"]
+    },
+    {
+      "name": "claude-config",
+      "description": "Export Claude Code configuration for portable setup across machines",
+      "version": "1.0.0",
+      "author": {
+        "name": "GoodAI Swarm Robotics"
+      },
+      "source": "./plugins/claude-config",
+      "category": "developer-tools",
+      "tags": ["config", "setup", "backup", "export"],
+      "keywords": ["config", "setup", "export", "backup", "mcp", "plugins", "marketplaces"]
     }
   ]
 }
