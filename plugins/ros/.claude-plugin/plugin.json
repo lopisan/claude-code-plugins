@@ -1,11 +1,12 @@
 {
   "name": "ros",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Project-agnostic ROS1 plugin for topics, services, parameters, TF transforms, build, launch, and diagnostics. Includes intelligent agents for system exploration, debugging, and monitoring.",
   "author": {
     "name": "ROS Developer"
   },
   "license": "MIT",
+  "hooks": "hooks/hooks.json",
   "keywords": [
     "ros",
     "ros1",
