@@ -6,43 +6,47 @@ model: haiku
 
 # ROS Master Discovery
 
-Discover available ROS masters and select one for this session.
+Discover available ROS masters and let the user select one for this session.
 
 ## Steps
 
-1. **Check localhost first** (runs on host, not in container):
+1. **Scan for ROS masters** (runs on host, not in container):
    ```bash
    bash "${CLAUDE_PLUGIN_ROOT}/scripts/find_ros_master.sh"
    ```
 
-2. **Parse JSON result**: `{"masters": ["127.0.0.1"]}` or `{"masters": []}`
+2. **Parse JSON result**:
+   - `{"masters": [...], "external": [...], "local": "..."}`
 
-3. **If localhost found**: Auto-select and confirm
-   ```
-   ROS master found at localhost
-   URI: http://127.0.0.1:11311
-   ```
+3. **Handle results based on count**:
 
-4. **If localhost not found**: Ask user for remote hosts
-   Use AskUserQuestion: "No ROS master on localhost. Enter remote host IP/hostname to check:"
-   Then run:
-   ```bash
-   bash "${CLAUDE_PLUGIN_ROOT}/scripts/find_ros_master.sh" <user-provided-host>
-   ```
+   **If no masters found**:
+   - Use AskUserQuestion to ask for a specific IP/hostname to check
+   - Run script again with that host
 
-5. **Store the selection**:
+   **If exactly one master found**:
+   - Auto-select and confirm the single option
+   - Display: `ROS Master: http://<ip>:11311`
+
+   **If multiple masters found (2+)**:
+   - Use AskUserQuestion with dropdown options showing all discovered IPs
+   - Include labels: "(local)" for the local IP, "(external)" for others
+   - Example options: "192.168.0.121 (local)", "192.168.0.240 (external)"
+
+4. **Store the selection**:
    Remember the selected ROS_MASTER_URI for subsequent ROS commands this session.
    When running ROS commands, prepend: `ROS_MASTER_URI=http://<selected>:11311`
 
 ## Output
 
+Single master:
 ```
 ROS Master: http://127.0.0.1:11311
 Ready for ROS commands.
 ```
 
-Or if user provided host:
+Multiple masters (after user selection):
 ```
-ROS Master: http://192.168.1.50:11311
+ROS Master: http://192.168.0.240:11311
 Ready for ROS commands.
 ```
