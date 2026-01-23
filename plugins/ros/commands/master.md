@@ -34,8 +34,12 @@ Discover available ROS masters and let the user select one for this session.
    - Example options: "192.168.0.121 (local)", "192.168.0.240 (external)"
 
 4. **Store the selection**:
-   Remember the selected ROS_MASTER_URI for subsequent ROS commands this session.
-   When running ROS commands, prepend: `ROS_MASTER_URI=http://<selected>:11311`
+   Write the selected URI to `.claude/ros_master_uri` for persistence across commands:
+   ```bash
+   mkdir -p .claude
+   echo "http://<selected>:11311" > .claude/ros_master_uri
+   ```
+   The PreToolUse hook will read this file and forward the URI to all ROS commands via the wrapper.
 
 ## Output
 

@@ -350,6 +350,59 @@ The `/status` command will check if ROS is properly sourced and prompt you if no
 
 ---
 
+## Docker Wrapper Support
+
+If your ROS environment runs inside a Docker container, the plugin can automatically wrap ROS commands to execute inside the container.
+
+### Marking a Wrapper Script
+
+Add a `# ros-wrapper` comment in the first 5 lines of your wrapper script:
+
+```bash
+#!/bin/bash
+# ros-wrapper
+# This script runs commands inside the ROS container
+
+docker exec -it ros_container "$@"
+```
+
+### Detection Order
+
+The plugin checks for wrappers in this order:
+
+1. `./run.sh` - if exists AND contains `# ros-wrapper` in first 5 lines
+2. `./deploy/run.sh` - same check
+3. `CLAUDE.md` directive - `ros-wrapper: <path>`
+4. No wrapper found - commands execute directly
+
+### Alternative: CLAUDE.md Directive
+
+Add a line to your project's `CLAUDE.md`:
+
+```markdown
+ros-wrapper: ./scripts/docker_ros.sh
+```
+
+### How It Works
+
+When a wrapper is detected, ROS commands are automatically transformed:
+
+```bash
+# Original command:
+rostopic list; rosnode info /foo
+
+# Transformed to:
+./run.sh bash -c "rostopic list; rosnode info /foo"
+```
+
+Non-ROS commands (`ls`, `git`, etc.) pass through unchanged.
+
+### Environment Variables
+
+When using `/master` to select a ROS master, the URI is saved to `.claude/ros_master_uri` and automatically forwarded to the wrapper via `-e ROS_MASTER_URI=...`.
+
+---
+
 ## Requirements
 
 - ROS1 installed (Noetic, Melodic, etc.) at `/opt/ros/<distro>/`
