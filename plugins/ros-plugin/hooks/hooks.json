@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "ROS Plugin loaded. Ensure ROS environment is sourced before using commands.\n\nAvailable commands:\n- /status - System overview\n- /topics - Topic inspection\n- /services - Service management\n- /params - Parameter management\n- /tf - Transform tree\n- /build - Catkin build\n- /launch - Launch file management\n- /record - Rosbag recording\n- /diag - Diagnostics"
+            "prompt": "ROS Plugin loaded.\n\nBefore running ROS commands in a new session:\n1. Run /master to discover available ROS masters\n2. This sets ROS_MASTER_URI for the session\n3. Skip if you know the master is localhost:11311\n\nTrack whether ROS master has been discovered this session. If user runs a ROS command without prior /master, prompt them to run it first.\n\nAvailable commands: /status, /topics, /services, /params, /tf, /build, /launch, /record, /diag, /master"
           }
         ]
       }
