@@ -28,7 +28,7 @@
       "author": {
         "name": "ROS Developer"
       },
-      "source": "./plugins/ros-plugin",
+      "source": "./plugins/ros",
       "category": "robotics",
       "tags": ["ros", "ros1", "noetic", "robotics", "catkin"],
       "keywords": ["ros", "ros1", "noetic", "robotics", "catkin", "topics", "services", "parameters", "tf", "transforms"]
