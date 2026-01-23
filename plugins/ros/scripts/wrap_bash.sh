@@ -31,7 +31,19 @@ fi
 # Cache configuration
 CACHE_DIR="${HOME}/.cache/ros-plugin"
 CACHE_FILE="${CACHE_DIR}/wrapper_path"
-MASTER_FILE=".claude/ros_master_uri"
+
+# Find .claude/ros_master_uri by walking up directory tree
+find_master_file() {
+    local dir="$PWD"
+    while [ "$dir" != "/" ]; do
+        if [ -f "$dir/.claude/ros_master_uri" ]; then
+            echo "$dir/.claude/ros_master_uri"
+            return 0
+        fi
+        dir=$(dirname "$dir")
+    done
+    echo ""
+}
 
 # Check if a file is a valid ros-wrapper
 is_ros_wrapper() {
@@ -99,8 +111,9 @@ wrapper=$(get_wrapper)
 [ -z "$wrapper" ] && exit 0
 
 # Read master URI if available
+master_file=$(find_master_file)
 master_uri=""
-[ -f "$MASTER_FILE" ] && master_uri=$(cat "$MASTER_FILE")
+[ -n "$master_file" ] && master_uri=$(cat "$master_file")
 
 # Escape command for bash -c (escape double quotes and backslashes)
 escaped_cmd=$(printf '%s' "$command" | sed 's/\\/\\\\/g; s/"/\\"/g')
