@@ -9,7 +9,7 @@ A project-agnostic Claude Code plugin for ROS1 (Noetic) development with command
 Use the `--plugin-dir` flag to load the plugin during development:
 
 ```bash
-claude --plugin-dir ./ros-plugin
+claude --plugin-dir ./ros
 ```
 
 This loads the plugin directly without installation. Useful for testing changes.
@@ -21,8 +21,8 @@ Add to your project's `.claude/settings.json`:
 ```json
 {
   "plugins": {
-    "ros-plugin": {
-      "source": "./ros-plugin"
+    "ros": {
+      "source": "./ros"
     }
   }
 }
@@ -35,7 +35,7 @@ This shares the plugin with all collaborators via version control.
 Install for personal use across all projects:
 
 ```bash
-cp -r ros-plugin ~/.claude/plugins/
+cp -r ros ~/.claude/plugins/
 ```
 
 ### Verify Installation
@@ -307,7 +307,7 @@ Fix: Remap in launch file or change subscriber topic name
 ## File Structure
 
 ```
-ros-plugin/
+ros/
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin manifest
 ├── commands/

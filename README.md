@@ -13,12 +13,12 @@ Add the marketplace to Claude Code:
 Install a plugin:
 
 ```bash
-/plugin install ros-plugin@swarm-marketplace
+/plugin install ros@swarm-marketplace
 ```
 
 ## Available Plugins
 
-- **ros-plugin** - ROS1 development tools (topics, services, parameters, TF, build, launch, diagnostics)
+- **ros** - ROS1 development tools (topics, services, parameters, TF, build, launch, diagnostics)
 - **plugin-development** - Plugin scaffolding and validation toolkit
 - **hello-world** - Example plugin
 

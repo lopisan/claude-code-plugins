@@ -23,7 +23,7 @@ The ROS MCP server provides 31 tools that could replace Bash commands for struct
 ## Plugin Structure
 
 ```
-ros-plugin/
+ros/
 ├── .claude-plugin/
 │   └── plugin.json           # Plugin manifest
 ├── commands/

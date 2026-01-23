@@ -29,7 +29,7 @@ if ! echo "$command" | grep -qE "$ROS_PATTERN"; then
 fi
 
 # Cache configuration
-CACHE_DIR="${HOME}/.cache/ros-plugin"
+CACHE_DIR="${HOME}/.cache/claude-ros-plugin"
 CACHE_FILE="${CACHE_DIR}/wrapper_path"
 
 # Find .claude/ros_master_uri by walking up directory tree
