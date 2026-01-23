@@ -208,8 +208,8 @@ PLUGIN_CLEANUP
         if [[ "$EXPORT_MARKETPLACES" == true ]]; then
             cat << 'MARKETPLACE_CLEANUP'
 echo "=== Removing existing Marketplaces ==="
-for marketplace in $(claude marketplace list --json 2>/dev/null | jq -r '.[].name // empty'); do
-    claude marketplace remove "$marketplace" || true
+for marketplace in $(claude plugin marketplace list --json 2>/dev/null | jq -r '.[].name // empty'); do
+    claude plugin marketplace remove "$marketplace" || true
 done
 
 MARKETPLACE_CLEANUP
@@ -223,9 +223,9 @@ MARKETPLACE_CLEANUP
             jq -r '
               to_entries[] |
               if .value.source.source == "git" then
-                "claude marketplace add \(.value.source.url)"
+                "claude plugin marketplace add \(.value.source.url)"
               elif .value.source.source == "github" then
-                "claude marketplace add \(.value.source.repo)"
+                "claude plugin marketplace add \(.value.source.repo)"
               else
                 empty
               end

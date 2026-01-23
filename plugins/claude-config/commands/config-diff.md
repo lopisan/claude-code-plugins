@@ -18,7 +18,7 @@ Compare your current Claude Code configuration with a previously saved setup scr
 1. Verify the provided setup script exists and is readable.
 
 2. Extract configuration from the setup script by parsing the commands:
-   - `claude marketplace add <url/repo>` entries
+   - `claude plugin marketplace add <url/repo>` entries
    - `claude mcp add <name> ...` entries
    - `claude plugin install <id>` entries
 
@@ -73,7 +73,7 @@ The command should use grep/regex to extract:
 
 ```bash
 # Marketplaces
-grep "claude marketplace add" script.sh | awk '{print $4}'
+grep "claude plugin marketplace add" script.sh | awk '{print $5}'
 
 # MCP servers (name is the first arg after 'claude mcp add')
 grep "claude mcp add" script.sh | awk '{print $4}'

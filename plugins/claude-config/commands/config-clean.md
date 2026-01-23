@@ -56,7 +56,7 @@ DRY RUN MODE - No changes will be made
 [DRY-RUN] Would: claude plugin uninstall "superpowers"
 
 === Removing Marketplaces ===
-[DRY-RUN] Would: claude marketplace remove "claude-code-plugins"
+[DRY-RUN] Would: claude plugin marketplace remove "claude-code-plugins"
 
 Dry run complete. No changes were made.
 ```

@@ -170,7 +170,7 @@ clean_marketplaces() {
     echo ""
     echo -e "${BLUE}=== Removing Marketplaces ===${NC}"
 
-    local marketplaces=$(claude marketplace list --json 2>/dev/null | jq -r '.[].name // empty')
+    local marketplaces=$(claude plugin marketplace list --json 2>/dev/null | jq -r '.[].name // empty')
 
     if [[ -z "$marketplaces" ]]; then
         log_info "No marketplaces registered"
@@ -180,9 +180,9 @@ clean_marketplaces() {
     while IFS= read -r marketplace; do
         if [[ -n "$marketplace" ]]; then
             if [[ "$DRY_RUN" == true ]]; then
-                log_dry "claude marketplace remove \"$marketplace\""
+                log_dry "claude plugin marketplace remove \"$marketplace\""
             else
-                if claude marketplace remove "$marketplace" 2>/dev/null; then
+                if claude plugin marketplace remove "$marketplace" 2>/dev/null; then
                     log_success "Removed marketplace: $marketplace"
                 else
                     log_warn "Failed to remove marketplace: $marketplace"
